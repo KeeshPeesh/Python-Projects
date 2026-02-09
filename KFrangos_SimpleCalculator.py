@@ -6,9 +6,9 @@ while True:
         break
     num1 = int(num1)
     
-    operator = input("Enter operator (+, -, *, /, ^, √): ")
+    operator = input("Enter operator (+, -, *, /, ^, sqrt): ")
     
-    if operator == "√":
+    if operator == "sqrt":
         print(math.sqrt(num1))
         continue
     
@@ -30,4 +30,7 @@ while True:
         print(num1 ** num2)
     else:
         print("Invalid operator")
-        
+
+
+
+#testing
