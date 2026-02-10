@@ -1,19 +1,37 @@
 import math
 
 while True:
-    num1 = input("Enter first number or type stop to stop: ")
+    #first number
+    num1 = input("Enter first number or type 'stop' to stop: ")
     if num1 == "stop":
         break
-    num1 = int(num1)
-    
+
+    #error handling
+    try:
+        num1 = int(num1)
+    except:
+        print("Invalid input. Please enter an number.")
+        continue
+
+    #operator
     operator = input("Enter operator (+, -, *, /, ^, sqrt): ")
-    
+
+    #square root
     if operator == "sqrt":
         print(math.sqrt(num1))
         continue
     
-    num2 = int(input("Enter second number: "))
+    #second number
+    num2 = input("Enter second number: ")
+
+    #error handling
+    try:
+        num2 = int(num2)
+    except:
+        print("Invalid input. Please enter an number.")
+        continue
     
+    #operations
     if operator == "+":
         print(num1 + num2)
     elif operator == "-":
@@ -28,5 +46,8 @@ while True:
     
     elif operator == "^":
         print(num1 ** num2)
+        
+        #invalid operator
     else:
-        print("Invalid operator")
+        if operator not in ["+", "-", "*", "/", "^", "sqrt"]:
+            print("Invalid operator")
