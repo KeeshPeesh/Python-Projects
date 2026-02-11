@@ -1,10 +1,10 @@
 # Practice Activity 1
 name = input("Name: ")
 age = int(input("Age: "))
-print("Hello " + name + ", you are " + int(age) + " years old.")
+print(f"Hello {name} you are {age} years old.")
 
 # Practice Activity 2
-age = int(input("Age: "))
+# age = int(input("Age: "))
 if age < 18:
     print("Minor")
 elif age >= 18:
