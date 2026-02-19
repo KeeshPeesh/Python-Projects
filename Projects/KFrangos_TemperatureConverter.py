@@ -6,42 +6,39 @@ print("Units: C = Celsius, F = Fahrenheit, K = Kelvin")
 running = True
 
 while running:
+    def convert_temperature(value, from_unit, to_unit):
+        if from_unit == to_unit:
+            return value
+        elif from_unit == "C":
+            if to_unit == "F":
+                return (value * 9/5) + 32
+            elif to_unit == "K":
+                return value + 273.15
+        elif from_unit == "F":
+            if to_unit == "C":
+                return (value - 32) * 5/9
+            elif to_unit == "K":
+                return (value - 32) * 5/9 + 273.15
+        elif from_unit == "K":
+            if to_unit == "C":
+                return value - 273.15
+            elif to_unit == "F":
+                return (value - 273.15) * 9/5 + 32
+            
     try:
-        temp = float(input("Enter temperature value: "))
+        temp_value = float(input("Enter the temperature value: "))
+        from_unit = input("Convert from (C/F/K): ").upper()
+        to_unit = input("Convert to (C/F/K): ").upper()
+
+        if from_unit in ["C", "F", "K"] and to_unit in ["C", "F", "K"]:
+            converted_value = convert_temperature(temp_value, from_unit, to_unit)
+            print(f"{temp_value} {from_unit} is equal to {converted_value:.2f} {to_unit}")
+        else:
+            print("Invalid units. Please enter C, F, or K.")
+            
     except ValueError:
-        print("Invalid number. Please enter a numeric value.")
+        print("Invalid input. Please enter a numeric temperature value.")
         
-    from_unit = input("Enter input unit (C/F/K): ").upper()
-    to_unit = input("Enter output unit (C/F/K): ").upper()
-    
-    #Valudate Units
-    if from_unit not in ["C", "F", "K"] or to_unit not in ["C", "F", "K"]:
-        print("Invalid unit. Please use C, F, or K.")
-        continue
-    
-    #Kelvin cannot be negative
-    if from_unit == "K" and temp < 0:
-        print("Invalid: Kelvin cannot be negative.")
-        continue
-    
-    #Convert input to Celsius
-    if from_unit == "C":
-        celcius = temp
-    elif from_unit == "F":
-        celcius = (temp - 32) * 5/9
-    elif from_unit == "K":
-            celcius = temp - 273.15
-    
-    #Convert celcius to target Unit
-    if to_unit == "C":
-        result = celcius
-    elif to_unit == "F":
-        result = (celcius * 9/5) + 32
-    elif to_unit == "K":
-        result = celcius + 273.15
-        
-    print(f"Result: {result:.2f} {to_unit}")
-    
-    choice = input("Convert Again? (Yes/No): ").lower()
-    if choice == "no":
+    continue_choice = input("Do you want to convert another temperature? (yes/no): ").lower()
+    if continue_choice != 'yes':
         running = False
