@@ -8,5 +8,3 @@ total = sum((num))
 average = total / len(num)
 
 print("The average is:", average)
-
-#What is Data Science? - field that uses methods, processes, algorithms and systems to get information from structured and unstructured data
