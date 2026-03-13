@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('WeatherStationData.csv')
+df = pd.read_csv('Projects\\KFrangos_WeatherApplication\\WeatherStationData.csv')
 
 temp_high = df['Temperature Highest'].to_numpy()
 temp_low = df['Temperature Lowest'].to_numpy()
@@ -186,7 +186,7 @@ while True:
 
           print("Station updated successfully!")
       else:
-          print(f"No station found for location: {update_location}")
+          print(f"No station found for location: {update_id}")
 
   if choice == '7':
     break
